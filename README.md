@@ -7,7 +7,7 @@
 运行容器
 
 ```
-docker run -d --name sampleweb-java -p 8080:8080 registry.cn-shenzhen.aliyuncs.com/cnmirror/java-sampleweb:v1.0
+docker run -d --name sampleweb-java -p 8080:8080 registry.cn-shenzhen.aliyuncs.com/cnmirror/sampleweb-java:v1.0
 ```
 
 浏览器访问
@@ -21,6 +21,6 @@ http://localhost:8080
 ```
 git clone https://github.com/willzhang/sampleweb-java.git
 cd sampleweb-java
-docker build -t registry.cn-shenzhen.aliyuncs.com/cnmirror/java-sampleweb:v1.0 .
+docker build -t registry.cn-shenzhen.aliyuncs.com/cnmirror/sampleweb-java:v1.0 .
 ```
 
