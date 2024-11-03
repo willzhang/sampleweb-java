@@ -1,0 +1,35 @@
+name: Docker Image CI
+
+on: workflow_dispatch
+#  push:
+#    branches: [ "main" ]
+#  pull_request:
+#    branches: [ "main" ]
+
+env:
+  REGISTRY_URL: https://registry.cn-shenzhen.aliyuncs.com
+  REGISTRY_REPO: registry.cn-shenzhen.aliyuncs.com/cnmirror
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+
+    - name: Login to ACR
+      uses: aliyun/acr-login@v1
+      with:
+        login-server: $REGISTRY_URL
+        username: "${{ secrets.REGISTRY_USERNAME }}"
+        password: "${{ secrets.REGISTRY_PASSWORD }}"
+    - name: Build and push image
+      env:
+        IMAGE_TAG: ${{ github.run_number }}
+      run: |
+        docker build -t $REGISTRY_REPO:$IMAGE_TAG .
+        docker push $REGISTRY_REPO:$IMAGE_TAG
