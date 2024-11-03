@@ -9,6 +9,7 @@ on: workflow_dispatch
 env:
   REGISTRY_URL: https://registry.cn-shenzhen.aliyuncs.com
   REGISTRY_REPO: registry.cn-shenzhen.aliyuncs.com/cnmirror
+  IMAGE_NAME: sampleweb-java
 
 jobs:
 
@@ -31,5 +32,5 @@ jobs:
       env:
         IMAGE_TAG: ${{ github.run_number }}
       run: |
-        docker build -t $REGISTRY_REPO:$IMAGE_TAG .
-        docker push $REGISTRY_REPO:$IMAGE_TAG
+        docker build -t $REGISTRY_REPO/$IMAGE_NAME:$IMAGE_TAG .
+        docker push $REGISTRY_REPO/$IMAGE_NAME:$IMAGE_TAG
