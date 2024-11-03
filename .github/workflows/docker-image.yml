@@ -24,7 +24,7 @@ jobs:
       uses: docker/login-action@v3
       with:
         registry: https://registry.cn-shenzhen.aliyuncs.com
-        username: ${{ secrets.REGISTRY_USERNAME }}
+        username: willzhmic@outlook.com
         password: ${{ secrets.REGISTRY_PASSWORD }}
 
     - name: Build and push image
