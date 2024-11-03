@@ -7,7 +7,8 @@
 运行容器
 
 ```
-docker run -d --name sampleweb-java -p 8080:8080 registry.cn-shenzhen.aliyuncs.com/cnmirror/sampleweb-java:v1.0
+docker run -d --name sampleweb-java -p 8080:8080 \
+registry.cn-shenzhen.aliyuncs.com/cnmirror/sampleweb-java:v1.0
 ```
 
 浏览器访问
