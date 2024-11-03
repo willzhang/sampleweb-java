@@ -26,11 +26,13 @@ jobs:
       uses: aliyun/acr-login@v1
       with:
         login-server: $REGISTRY_URL
+        region-id: 'cn-shenzhen'
         username: "${{ secrets.REGISTRY_USERNAME }}"
         password: "${{ secrets.REGISTRY_PASSWORD }}"
     - name: Build and push image
       env:
         IMAGE_TAG: ${{ github.run_number }}
       run: |
+        cat /home/runner/work/_temp/docker_login_1730619885097/config.json
         docker build -t $REGISTRY_REPO/$IMAGE_NAME:$IMAGE_TAG .
         docker push $REGISTRY_REPO/$IMAGE_NAME:$IMAGE_TAG
