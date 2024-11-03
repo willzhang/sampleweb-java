@@ -32,6 +32,5 @@ jobs:
       env:
         IMAGE_TAG: ${{ github.run_number }}
       run: |
-        cat /home/runner/work/_temp/docker_login_1730619885097/*.json
         docker build -t $REGISTRY_REPO/$IMAGE_NAME:$IMAGE_TAG .
         docker push $REGISTRY_REPO/$IMAGE_NAME:$IMAGE_TAG
