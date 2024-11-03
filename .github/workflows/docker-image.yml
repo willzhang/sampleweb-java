@@ -23,7 +23,7 @@ jobs:
     - name: Login to Registry
       uses: docker/login-action@v3
       with:
-        registry: $REGISTRY_URL
+        registry: https://registry.cn-shenzhen.aliyuncs.com
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
 
