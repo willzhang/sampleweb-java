@@ -1,6 +1,6 @@
 ## sampleweb-java
 
-介绍：基于java httpserver模块实现简单的web服务器。
+介绍：基于java 内置httpserver模块实现简单的web服务器。
 
 ## 快速入门
 
